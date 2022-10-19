@@ -3,14 +3,24 @@ import { useAutomobileContext } from '@/context/AutomobileContext'
 import { useEffect } from 'react'
 import { SelectAutocomplete } from '@/components/SelectAutocomplete'
 import { useFetchBrand, useFetchModelByBrand, useFetchYearByModel } from '@/hooks/automobiles'
-import { deepPurple } from '@mui/material/colors'
 import Link from 'next/link'
+import { optionSelect } from 'types'
+
+interface useFetchModelByBrand {
+  dataModelByBrand: any[],
+  fetchModelByBrand: (any: any) => {}
+}
+
+interface useFetchYearByModel {
+  dataYearByModel: any[],
+  fetchYearByModel: (any: any, any2: any) => {}
+}
 
 export const FormSearchAutomobile = () => {
   const { values, handleChange }: any = useAutomobileContext()
   const { dataBrand, fetchBrand } = useFetchBrand()
-  const { dataModelByBrand, fetchModelByBrand } = useFetchModelByBrand()
-  const { dataYearByModel, fetchYearByModel } = useFetchYearByModel()
+  const { dataModelByBrand, fetchModelByBrand }: useFetchModelByBrand = useFetchModelByBrand()
+  const { dataYearByModel, fetchYearByModel}: useFetchYearByModel = useFetchYearByModel()
 
   useEffect(() => {
     fetchBrand()
@@ -33,31 +43,31 @@ export const FormSearchAutomobile = () => {
         options={dataBrand}
         label="Carro"
         value={values.brand}
-        onChange={(event: any, newValue: string | null) => {
+        onChange={(event: any, newValue: optionSelect | null) => {
           handleChange(newValue, 'brand')
-          fetchModelByBrand(newValue.value)
+          fetchModelByBrand(newValue?.value)
         }}
       />
       <SelectAutocomplete
         options={dataModelByBrand}
         label="Modelo"
         value={values.model}
-        onChange={(event: any, newValue: string | null) => {
+        onChange={(event: any, newValue: optionSelect | null) => {
           handleChange(newValue, 'model')
-          fetchYearByModel(values.brand.value, newValue.value)
+          fetchYearByModel(values.brand.value, newValue?.value)
         }}
       />
       {values.model && (
         <SelectAutocomplete
           options={dataYearByModel}
           value={values.year}
-          onChange={(event: any, newValue: string | null) => {
+          onChange={(event: any, newValue: optionSelect | null) => {
             handleChange(newValue, 'year')
           }}
           label="Ano"
         />
       )}
-      <Link href='/result' passHref>
+      <Link href="/result" passHref>
         <Button
           variant="contained"
           color="primary"

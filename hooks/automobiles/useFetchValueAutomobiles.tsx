@@ -4,9 +4,10 @@ import httpHeaders from '@/utils/httpHeaders'
 import { valuesSearch } from 'types'
 
 export const useFetchValueAutomobiles = () => {
-  const {values} = useAutomobileContext()
+  const { values } = useAutomobileContext()
+  const {brand, model, year}: any = values
   const { data, makeRequest, loading } = useApi(() =>
-    httpHeaders.get(`carros/marcas/${values.brand.value}/modelos/${values.model.value}/anos/${values.year.value}`)
+    httpHeaders.get(`carros/marcas/${brand.value}/modelos/${model.value}/anos/${year.value}`)
   )
 
   return {

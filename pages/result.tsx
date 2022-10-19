@@ -29,11 +29,11 @@ const Result = () => {
             }}
           >
             <Typography variant="h4" fontWeight="bold">
-              Tabela Fipe: Preço {dataValueAutomobiles?.Marca} {dataValueAutomobiles?.Modelo} {dataValueAutomobiles?.AnoModelo}
+              Tabela Fipe: Preço {dataValueAutomobiles['Marca']} {dataValueAutomobiles['Modelo']} {dataValueAutomobiles['AnoModelo']}
             </Typography>
             <Box style={{ backgroundColor: '#009a8a', padding: '8px 15px', borderRadius: '27px' }}>
               <Typography variant="h5" color="#fff" fontWeight="bold">
-                {dataValueAutomobiles?.Valor}
+                {dataValueAutomobiles['Valor']}
               </Typography>
             </Box>
             <Typography variant="h6" color="#a5aaa8" fontWeight="bold" style={{fontSize: '14px'}}>
