@@ -1,9 +1,8 @@
 import { useAutomobileContext } from '@/context/AutomobileContext'
 import { useApi } from '@/hooks/useApi'
 import httpHeaders from '@/utils/httpHeaders'
-import { valuesSearch } from 'types'
 
-export const useFetchValueAutomobiles = () => {
+export const useFetchResult = () => {
   const { values } = useAutomobileContext()
   const {brand, model, year}: any = values
   const { data, makeRequest, loading } = useApi(() =>
@@ -11,8 +10,8 @@ export const useFetchValueAutomobiles = () => {
   )
 
   return {
-    dataValueAutomobiles: data,
-    loadingValueAutomobiles: loading,
-    fetchValueAutomobiles: makeRequest,
+    dataResult: data,
+    loadingResult: loading,
+    fetchResult: makeRequest,
   }
 }

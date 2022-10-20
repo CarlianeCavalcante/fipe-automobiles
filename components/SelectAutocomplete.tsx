@@ -1,18 +1,7 @@
 import { Autocomplete, TextField } from '@mui/material'
+import { selectAutocompleteProps } from 'types'
 
-interface selectAutocompleteProps {
-  options: { label: string; value: number }[]
-  label: string
-  onChange: (any: any, any2: any) => void
-  value: {
-    label: string
-    value: number
-  } | null
-}
-
-export const SelectAutocomplete = (props: selectAutocompleteProps) => {
-  const { options, label, onChange, value } = props
-
+export const SelectAutocomplete = ({ options, label, onChange, value }: selectAutocompleteProps) => {
   return (
     <Autocomplete
       isOptionEqualToValue={(option: object, value: object) => option === value}
@@ -21,7 +10,16 @@ export const SelectAutocomplete = (props: selectAutocompleteProps) => {
       onChange={onChange}
       value={value}
       sx={{ width: 400, my: 2 }}
-      renderInput={params => <TextField {...params} label={label} variant="filled" style={{ backgroundColor: 'transparent' }} />}
+      renderInput={(params: any) => (
+        <TextField
+          {...params}
+          InputProps={{ ...params.InputProps, disableUnderline: true }}
+          label={label}
+          fullWidth
+          variant="filled"
+          color="primary"
+        />
+      )}
     />
   )
 }

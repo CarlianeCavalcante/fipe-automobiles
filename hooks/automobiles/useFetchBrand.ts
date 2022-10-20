@@ -5,10 +5,9 @@ import httpHeaders from '@/utils/httpHeaders'
 export const useFetchBrand = () => {
   const { data, makeRequest, loading } = useApi(() => httpHeaders.get(`carros/marcas`))
 
-  const optionsBrand = handleOptions(data) || []
-
   return {
-    dataBrand: optionsBrand,
+    dataBrand: data,
+    optionsBrand: handleOptions(data) || [],
     loadingBrand: loading,
     fetchBrand: makeRequest,
   }

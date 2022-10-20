@@ -1,4 +1,4 @@
-export { useFetchBrand } from './useFetchBrand'
-export { useFetchModelByBrand } from './useFetchModelByBrand'
-export { useFetchYearByModel } from './useFetchYearByModel'
-export { useFetchValueAutomobiles } from './useFetchValueAutomobiles'
+export * from './useFetchBrand'
+export * from './useFetchModel'
+export * from './useFetchYear'
+export * from './useFetchResult'

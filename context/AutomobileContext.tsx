@@ -1,6 +1,5 @@
-import { useFetchValueAutomobiles } from '@/hooks/automobiles'
 import React, { createContext, useContext, useState, FC, useEffect } from 'react'
-import { automobileContext, valuesSearch } from 'types'
+import { automobileContext, values, optionSelect } from 'types'
 
 const AutomobileContext = createContext<automobileContext>({
   values: {},
@@ -10,7 +9,7 @@ const AutomobileContext = createContext<automobileContext>({
 const useAutomobileContext = () => useContext(AutomobileContext)
 
 const AutomobileContextProvider: FC<any> = ({ children }) => {
-  const [values, setValues] = useState<valuesSearch>({
+  const [values, setValues] = useState<values>({
     automobile: 'carros',
     brand: '',
     model: '',
