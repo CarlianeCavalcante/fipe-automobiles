@@ -10,6 +10,8 @@ export const FormSearchAutomobile = ({
   yearOptions,
   values,
   handleChange,
+  fetchYear,
+  fetchModel
 }: formSearchProps) => {
   const styles: any = useStyles()
 
@@ -21,8 +23,7 @@ export const FormSearchAutomobile = ({
         value={values.brand}
         onChange={(event: any, newValue: optionSelect | null) => {
           handleChange(newValue, 'brand')
-          handleChange('', 'model')
-          handleChange('', 'year')
+          fetchModel(newValue?.value)
         }}
       />
       <SelectAutocomplete
@@ -31,7 +32,7 @@ export const FormSearchAutomobile = ({
         value={values.model}
         onChange={(event: any, newValue: optionSelect | null) => {
           handleChange(newValue, 'model')
-          handleChange('', 'year')
+          fetchYear(values.brand.value, newValue?.value)
         }}
       />
       {values.model && (

@@ -3,7 +3,7 @@ import { handleOptions } from '@/utils/handleOptions'
 import httpHeaders from '@/utils/httpHeaders'
 
 export const useFetchModel = () => {
-  const { data, makeRequest, loading }: any = useApi((brandId: number) => httpHeaders.get(`carros/marcas/${brandId}/modelos`))
+  const { data, makeRequest, loading }: any = useApi((brandId: string | null) => httpHeaders.get(`carros/marcas/${brandId}/modelos`))
 
   return {
     dataModel: data,

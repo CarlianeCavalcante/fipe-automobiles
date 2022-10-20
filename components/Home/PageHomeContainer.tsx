@@ -5,6 +5,7 @@ import { useFetchBrand, useFetchModel, useFetchYear } from '@/hooks/automobiles'
 import { useAutomobileContext } from '@/context/AutomobileContext'
 import { useEffect } from 'react'
 import { makeStyles, createStyles } from '@material-ui/styles'
+import { automobileContext } from 'types'
 
 const useStyles: any = makeStyles(() =>
   createStyles({
@@ -17,12 +18,12 @@ const useStyles: any = makeStyles(() =>
       borderRadius: '4px',
       padding: '16px 50px',
       boxShadow: '0 2px 4px rgba(0,0,0,.5)',
-    }
+    },
   })
 )
 
 export const PageHomeContainer = () => {
-  const { values, handleChange }: any = useAutomobileContext()
+  const { values, handleChange} = useAutomobileContext()
   const { optionsBrand, fetchBrand }: any = useFetchBrand()
   const { optionsModel, fetchModel }: any = useFetchModel()
   const { optionsYear, fetchYear }: any = useFetchYear()
@@ -30,11 +31,6 @@ export const PageHomeContainer = () => {
   useEffect(() => {
     fetchBrand()
   }, [])
-
-  useEffect(() => {
-    if (values.brand) return fetchModel(values.brand)
-    if (values.brand && values.model) return fetchYear(values.brand, values.model)
-  }, [values])
 
   return (
     <PageSection>
@@ -52,6 +48,8 @@ export const PageHomeContainer = () => {
           values={values}
           handleChange={handleChange}
           useStyles={useStyles}
+          fetchModel={fetchModel}
+          fetchYear={fetchYear}
         />
       </div>
     </PageSection>

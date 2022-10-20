@@ -24,7 +24,9 @@ export type formSearchProps = {
   modelOptions: any[]
   yearOptions: any[]
   values: any
-  handleChange: (any: any, any2: string) => {}
+  handleChange: (value: any, name: string) => void
+  fetchYear: any
+  fetchModel: any,
 }
 
 export type selectAutocompleteProps = {
@@ -38,6 +40,6 @@ export type selectAutocompleteProps = {
 }
 
 export type automobileContext = {
-  values: {}
-  handleChange: (value: any, name: string) => void
+  values: any
+  handleChange: (value: any, name: string) => void 
 }
