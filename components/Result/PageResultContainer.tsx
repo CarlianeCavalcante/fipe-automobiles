@@ -16,7 +16,7 @@ const useStyles: any = makeStyles(() =>
       flexDirection: 'column',
       gap: 15,
       backgroundColor: 'rgb(124,204,171, 0.3)',
-      padding: '30px 200px',
+      padding: '3% 8%',
     },
   })
 )

@@ -32,7 +32,8 @@ export type formSearchProps = {
 export type selectAutocompleteProps = {
   options: { label: string; value: number }[]
   label: string
-  onChange: (any: any, any2: any) => void
+  placeholder: string
+  onChange: (any: any) => void
   value: {
     label: string
     value: number

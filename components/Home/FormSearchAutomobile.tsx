@@ -11,7 +11,7 @@ export const FormSearchAutomobile = ({
   values,
   handleChange,
   fetchYear,
-  fetchModel
+  fetchModel,
 }: formSearchProps) => {
   const styles: any = useStyles()
 
@@ -21,28 +21,31 @@ export const FormSearchAutomobile = ({
         options={brandOptions}
         label="Carro"
         value={values.brand}
-        onChange={(event: any, newValue: optionSelect | null) => {
-          handleChange(newValue, 'brand')
-          fetchModel(newValue?.value)
+        placeholder="Selecione a Marca"
+        onChange={(value: optionSelect | null) => {
+          handleChange(value, 'brand')
+          fetchModel(value?.value)
         }}
       />
       <SelectAutocomplete
         options={modelOptions}
         label="Modelo"
         value={values.model}
-        onChange={(event: any, newValue: optionSelect | null) => {
-          handleChange(newValue, 'model')
-          fetchYear(values.brand.value, newValue?.value)
+        placeholder="Selecione o Modelo"
+        onChange={(value: optionSelect | null) => {
+          handleChange(value, 'model')
+          fetchYear(values.brand.value, value?.value)
         }}
       />
       {values.model && (
         <SelectAutocomplete
           options={yearOptions}
-          value={values.year}
-          onChange={(event: any, newValue: optionSelect | null) => {
-            handleChange(newValue, 'year')
-          }}
           label="Ano"
+          value={values.year}
+          placeholder="Selecione o Ano"
+          onChange={(value: optionSelect | null) => {
+            handleChange(value, 'year')
+          }}
         />
       )}
       <Link href="/result" passHref>
