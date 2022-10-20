@@ -8,12 +8,10 @@ Instalando as dependências necesárias para iniciar o projeto:
 
 Utilizando npm:
 
-$ cd fipe-automoveis
-$ npm install
+``npm install`` 
 
 Utilizando Yarn:
 
-$ cd fipe-automoveis
-$yarn install
+``yarn install``
 
-para iniciar o projeto utilize o comando: yarn/npm dev
+para iniciar o projeto utilize o comando: ``yarn/npm dev``
