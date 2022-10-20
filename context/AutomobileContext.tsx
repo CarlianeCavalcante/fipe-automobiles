@@ -21,18 +21,22 @@ const AutomobileContextProvider: FC<any> = ({ children }) => {
       case 'brand':
         setValues({
           ...values,
+          [name]: value,
           model: '',
           year: '',
         })
+        break
       case 'model':
         setValues({
           ...values,
+          [name]: value,
           year: '',
         })
+        break
       default:
+        setValues({ ...values, [name]: value })
         break
     }
-    setValues({ ...values, [name]: value })
   }
 
   return (

@@ -19,7 +19,7 @@ export const FormSearchAutomobile = ({
     <form className={styles.boxShadow}>
       <SelectAutocomplete
         options={brandOptions}
-        label="Carro"
+        label="Marca"
         value={values.brand}
         placeholder="Selecione a Marca"
         onChange={(value: optionSelect | null) => {

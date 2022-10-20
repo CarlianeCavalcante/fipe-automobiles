@@ -1,4 +1,4 @@
-# [Tabela FIPE]
+# Tabela FIPE
 
 #### Como Iniciar o Projeto
 
@@ -6,10 +6,14 @@
 
 Instalando as dependências necesárias para iniciar o projeto:
 
-## Versions
+Utilizando npm:
 
-## File Structure
+$ cd fipe-automoveis
+$ npm install
 
-Within the download you'll find the following directories and files:
+Utilizando Yarn:
 
-##### Social Media
+$ cd fipe-automoveis
+$yarn install
+
+para iniciar o projeto utilize o comando: yarn/npm dev
